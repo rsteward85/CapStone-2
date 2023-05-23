@@ -56,3 +56,13 @@ const locationsArray = [
   "Wyoming",
 ];
 
+function populateDropdown(locationState) {
+  const dropDown = document.querySelector("location");
+  dropDown.onchange 
+  for (index = 1; index < locationState; index++) {
+    const option = document.createElement("option");
+    option.value = location;
+    option.innerText;
+    dropDown.append(option);
+  }
+}
