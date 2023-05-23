@@ -55,14 +55,15 @@ const locationsArray = [
   "Wisconsin",
   "Wyoming",
 ];
-
-function populateDropdown(locationState) {
-  const dropDown = document.querySelector("location");
-  dropDown.onchange 
-  for (index = 1; index < locationState; index++) {
-    const option = document.createElement("option");
-    option.value = location;
-    option.innerText;
-    dropDown.append(option);
+document.addEventListener("DOMContentLoaded", () => {
+  function populateDropdown(locationState) {
+    const dropDown = document.querySelector("#location");
+    for (const location of locationState) {
+      const option = document.createElement("option");
+      option.value = location;
+      option.innerText = location;
+      dropDown.appendChild(option);
+    }
   }
-}
+  populateDropdown(locationsArray);
+});

@@ -56,7 +56,11 @@
       <h1>Search National Parks</h1>
       <div class="searchbar">
         <div class="location">
-          <select name="location" id="location"></select>
+          <select
+            onchange="locationTable(this.value)"
+            name="location"
+            id="location"
+          ></select>
         </div>
         <div class="park">
           <select name="park" id="park"></select>
