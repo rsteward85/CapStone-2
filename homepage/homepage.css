@@ -1,0 +1,54 @@
+.mountain {
+  height: 25rem;
+  width: 50rem;
+  border-radius: 1rem;
+}
+
+.firstbodytext {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textone {
+  padding-right: 20px;
+}
+
+.park {
+  height: 25rem;
+  width: 50rem;
+  border-radius: 1rem;
+}
+
+.secondbodytext {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.texttwo {
+  padding-left: 20px;
+}
+
+.mountains {
+  height: 25rem;
+  width: 50rem;
+  border-radius: 1rem;
+}
+
+.thirdbodytext {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textthree {
+  padding-left: 20px;
+}
+
+h1 {
+  text-align: center;
+}
