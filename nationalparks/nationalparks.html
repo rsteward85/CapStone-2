@@ -63,9 +63,12 @@
           ></select>
         </div>
         <div class="park">
-          <select name="park" id="park"></select>
+          <select
+            onchange="parkTable(this.value)"
+            name="park"
+            id="park"
+          ></select>
         </div>
-        <button class="button" role="button">Go!</button>
       </div>
     </main>
   </body>
