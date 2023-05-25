@@ -1,7 +1,4 @@
-/*/ <!-- This function is for loading the park data in the dropdown element on the search national parks page 
- - I had help with using the "this" value from https://github.com/LTillett
-        - --> */
-
+// This section is for loading the dropdown from an array
 document.addEventListener("DOMContentLoaded", () => {
   function populateParkDropdown(parkData) {
     const dropPark = document.querySelector("#park");
@@ -13,40 +10,56 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   populateParkDropdown(parkTypesArray);
-});
 
-function filterParkType(showMePark) {
-  const selectedPark = nationalParksArray.filter((objectOfPark) =>
-    objectOfPark.LocationName.includes(showMePark)
-  );
-  return selectedPark;
-}
+  const parkDataContainer = document.querySelector("#parkData");
 
-matchedState.forEach((element) => {
-  // Assigned variables from array
-  let localName = element.LocationName != null ? element.LocationName : "";
-  let localCity = element.City != null ? element.City : "";
-  let localState = element.State != null ? element.State : "";
-  let localAddress = element.Address != null ? element.Address : "";
-  let localVisit = element.Visit != null ? element.Visit : "";
-  let locationItem = document.createElement("p");
-
-  // Style <p> tags with CSS
-  locationItem.classList.add("parkBlock");
-
-  const args = [localName, localCity, localState, localAddress, localVisit];
-
-  function parkFormat() {
-    for (const arg of args) {
-      locationItem.appendChild(document.createTextNode(arg));
-      locationItem.appendChild(document.createElement("br"));
-    }
+  function filterParkType(showMePark) {
+    const selectedPark = nationalParksArray.filter((objectOfPark) =>
+      objectOfPark.LocationName.includes(showMePark)
+    );
+    return selectedPark;
   }
-  function parkTable(value) {
-    console.log("Selected park:", value);
+// for creating a displaying the data from the selected park type dropdown
+  function displayParkData(selectedPark) {
+    parkDataContainer.innerHTML = ""; // Clear previous data
+// recieved advice on how to format each line on the page from the array. Her github is https://github.com/LTillett
+    selectedPark.forEach((park) => {
+      const parkInfo = document.createElement("div");
+      parkInfo.classList.add("parkInfo");
+
+      const parkName = document.createElement("h2");
+      parkName.innerText = park.LocationName;
+      parkInfo.appendChild(parkName);
+
+      const parkCity = document.createElement("p");
+      parkCity.innerText = `City: ${park.City}`;
+      parkInfo.appendChild(parkCity);
+
+      const parkState = document.createElement("p");
+      parkState.innerText = `State: ${park.State}`;
+      parkInfo.appendChild(parkState);
+
+      const parkAddress = document.createElement("p");
+      parkAddress.innerText = `Address: ${park.Address}`;
+      parkInfo.appendChild(parkAddress);
+
+      if (park.Visit !== undefined) {
+        const parkVisit = document.createElement("p");
+        parkVisit.innerText = `Visit: ${park.Visit}`;
+        parkInfo.appendChild(parkVisit);
+      }
+
+      parkDataContainer.appendChild(parkInfo);
+    });
   }
+// event listener for when a user selects a park type
   const selectElement = document.querySelector("#park");
   selectElement.addEventListener("change", function () {
-    parkTable(this.value);
+    const selectedPark = filterParkType(this.value);
+    displayParkData(selectedPark);
   });
 });
+
+
+
+  

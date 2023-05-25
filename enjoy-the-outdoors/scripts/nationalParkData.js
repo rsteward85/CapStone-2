@@ -1,11 +1,3 @@
-function locationTable(stateNames) {
-  function filterByID(item) {
-    if (item.state == stateNames) {
-      return item;
-    }
-  }
-  const park = nationalParksArray.filter(filterByID);
-}
 
 const nationalParksArray = [
   {
