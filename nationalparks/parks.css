@@ -31,6 +31,16 @@ h1 {
   width: 20rem;
   font-size: 2rem;
 }
+
+.parkInfo{
+ display: flex;
+ justify-content: center;
+  padding: 15px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 10px 10px 5px black;
+}
+
+
 .fa {
   padding: 20px;
   font-size: 30px;

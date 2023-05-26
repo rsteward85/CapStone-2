@@ -1,54 +1,41 @@
-document.addEventListener("DOMContentLoaded", () => 
-//   function populateMountainDropdown(mountainData) {
-//     const dropMountains = document.querySelector("#mountainsDropdown");
-//     selectElement.onchange = filterMountain();
-//     for (const mountains of mountainsArray) {
-//       const option = document.createElement("option");
-//       option.value = mountains;
-//       option.innerText = mountains;
-//       dropMountains.appendChild(option);
-//     }
-//   }
-
-//   populateMountainDropdown(mountainsArray);
-
-//   function filterMountain(showMeMountains) {
-//     const selectedMountains = mountainsArray.filter((mountain) =>
-//       mountain.LocationName.includes(showMeMountains)
-//     );
-//     return selectedMountains;
-//   }
-{function populateMountainDropdown() {
-    const selectElement = document.querySelector("#mountainDropdown");
-    selectElement.onchange = mountainChange;
-  
-    for (const mountain of mountainsArray) {
-      const option = document.createElement("option");
-      option.value = mountain.name;
-      option.innerText = mountain.name;
-      selectElement.append(option);
-    }
-  }
-  
-  function mountainChange() {
-    const selectElement = document.querySelector("#mountainDropdown");
-    const mountainInfo = document.querySelector("#mountData");
-    const currentMountain = selectElement.value;
-  
-    for (const mountain of mountainsArray) {
-      if (currentMountain === mountain.name) {
-        mountainInfo.innerHTML = `
-          <img src="mountain-images/${mountain.img}">
-          ${mountain.desc}
-          The effort for this hike is <strong>${mountain.effort}</strong>! <br><br>
-          Latitude: ${mountain.coords.lat} <br>
-          Longitude: ${mountain.coords.lng};
-        `;
-      }
-    }
-  }
-  populateMountainDropdown()
+document.addEventListener("DOMContentLoaded", () => {
+  loadMountainsInfo();
 });
+
+function loadMountainsInfo() {
+  const selectElement = document.querySelector("#mountainsDropdown");
+  selectElement.onchange = mountainChange;
+
+  for (const mountainData of mountainsArray) {
+    const option = document.createElement("option");
+    option.value = mountainData.name;
+    option.innerText = mountainData.name;
+    selectElement.append(option);
+  }
+}
+
+function mountainChange() {
+  const selectElement = document.querySelector("#mountainsDropdown");
+  const mountainInfo = document.querySelector("#mountData");
+  const currentMountain = selectElement.value;
+
+  for (const mountainData of mountainsArray) {
+    if (currentMountain === mountainData.name) {
+      mountainInfo.innerHTML = `
+        <div class="card transparent-card">
+          <img src="images/${mountainData.img}" class="card-img-top" alt="Mountain Image">
+          <div class="card-body">
+            <h5 class="card-title">${mountainData.name}</h5>
+            <p class="card-text">${mountainData.desc}</p>
+            <p class="card-text">Hike difficulty: <strong>${mountainData.effort}</strong></p>
+            <p class="card-text">Latitude: ${mountainData.coords.lat}</p>
+            <p class="card-text">Longitude: ${mountainData.coords.lng}</p>
+          </div>
+        </div>
+      `;
+    }
+  }
+}
 
 const mountainsArray = [
   {
