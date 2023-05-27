@@ -23,7 +23,7 @@ function mountainChange() {
     if (currentMountain === mountainData.name) {
       mountainInfo.innerHTML = `
         <div class="card transparent-card">
-          <img src="images/${mountainData.img}" class="card-img-top" alt="Mountain Image">
+          <img src="../enjoy-the-outdoors/images/${mountainData.img}" class="card-img-top" alt="Mountain Image">
           <div class="card-body">
             <h5 class="card-title">${mountainData.name}</h5>
             <p class="card-text">${mountainData.desc}</p>
