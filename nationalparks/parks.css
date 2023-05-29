@@ -32,14 +32,22 @@ h1 {
   font-size: 2rem;
 }
 
-.parkInfo{
- display: flex;
- justify-content: center;
-  padding: 15px;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 10px 10px 5px black;
+.parkInfo {
+  background-color: #f5f5f5;
+  border: 1px solid #4e4747;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
+.parkInfo h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.parkInfo p {
+  margin: 0;
+}
 
 .fa {
   padding: 20px;
@@ -49,7 +57,6 @@ h1 {
   text-decoration: none;
   margin: 5px 2px;
 }
-
 
 .fa:hover {
   opacity: 0.7;
