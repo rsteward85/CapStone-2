@@ -1,3 +1,4 @@
+// code for loading the imgs and array on mountain page
 document.addEventListener("DOMContentLoaded", () => {
   loadMountainsInfo();
 });
@@ -18,16 +19,15 @@ function mountainChange() {
   const selectElement = document.querySelector("#mountainsDropdown");
   const mountainInfo = document.querySelector("#mountData");
   const currentMountain = selectElement.value;
-
+  // how the code is displayed
   for (const mountainData of mountainsArray) {
     if (currentMountain === mountainData.name) {
       mountainInfo.innerHTML = `
-        <div class="card transparent-card">
+        <div class="card-transparent-card">
           <img src="../enjoy-the-outdoors/images/${mountainData.img}" class="card-img-top" alt="Mountain Image">
           <div class="card-body">
             <h5 class="card-title">${mountainData.name}</h5>
             <p class="card-text">${mountainData.desc}</p>
-            <p class="card-text">Hike difficulty: <strong>${mountainData.effort}</strong></p>
             <p class="card-text">Latitude: ${mountainData.coords.lat}</p>
             <p class="card-text">Longitude: ${mountainData.coords.lng}</p>
           </div>
